@@ -1,0 +1,6 @@
+.env
+memedagsins.json
+setenv
+
+venv/*
+__pycache__/*
