@@ -1,4 +1,5 @@
 from flask import Flask, escape, request
+from flask_cors import cross_origin
 import pam
 from dotenv import load_dotenv
 from os import getenv, path
@@ -19,7 +20,9 @@ def create_app(test_config=None):
 	p = pam.pam()
 	app = Flask(__name__)
 
-	@app.route('/set_meme')
+
+	@app.route('/set_meme', methods=["POST"])
+	@cross_origin()
 	def set_meme():
 		passw = request.args.get("leyniord")
 		meme = request.args.get("meme")
@@ -38,7 +41,8 @@ def create_app(test_config=None):
 		return "", 401
 
 
-	@app.route('/get_meme')
+	@app.route('/get_meme', methods=["GET"])
+	@cross_origin()
 	def get_meme():
 		index = request.args.get("index")
 		if len(all_memes) == 0:

@@ -1,4 +1,4 @@
-# Það sem þarf!
+# Það sem þarf:
 
 .env með
 
